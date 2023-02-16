@@ -374,7 +374,7 @@ testDefaultProject(Repo repo, String domainCode, String modelCode) {
 
       var session = models.newSession();
       var action = new AddAction(session, projects, marketing);
-      action.doit();
+      action.doIt();
       expect(projects.length, equals(++projectCount));
 
       action.undo();
@@ -393,7 +393,7 @@ testDefaultProject(Repo repo, String domainCode, String modelCode) {
 
       var session = models.newSession();
       var action = new AddAction(session, projects, marketing);
-      action.doit();
+      action.doIt();
       expect(projects.length, equals(++projectCount));
 
       session.past.undo();
@@ -413,7 +413,7 @@ testDefaultProject(Repo repo, String domainCode, String modelCode) {
       var action =
           new SetAttributeAction(session, project, 'description',
               'Domain Model Framework.');
-      action.doit();
+      action.doIt();
 
       session.past.undo();
       expect(project.description, equals(action.before));
@@ -431,14 +431,14 @@ testDefaultProject(Repo repo, String domainCode, String modelCode) {
 
       var session = models.newSession();
       var action1 = new AddAction(session, projects, project1);
-      action1.doit();
+      action1.doIt();
       expect(projects.length, equals(++projectCount));
 
       var project2 = new Project(projectConcept);
       project2.name = 'Database design';
 
       var action2 = new AddAction(session, projects, project2);
-      action2.doit();
+      action2.doIt();
       expect(projects.length, equals(++projectCount));
 
       session.past.display();
@@ -480,7 +480,7 @@ testDefaultProject(Repo repo, String domainCode, String modelCode) {
       var transaction = new Transaction('two adds on projects', session);
       transaction.add(action1);
       transaction.add(action2);
-      transaction.doit();
+      transaction.doIt();
       projectCount = projectCount + 2;
       expect(projects.length, equals(projectCount));
 
@@ -516,7 +516,7 @@ testDefaultProject(Repo repo, String domainCode, String modelCode) {
         'two adds on projects, with an error on the second', session);
       transaction.add(action1);
       transaction.add(action2);
-      var done = transaction.doit();
+      var done = transaction.doIt();
       expect(done, isFalse);
       expect(projects.length, equals(projectCount));
 
@@ -536,14 +536,14 @@ testDefaultProject(Repo repo, String domainCode, String modelCode) {
 
       var session = models.newSession();
       var addAction = new AddAction(session, projects, project);
-      addAction.doit();
+      addAction.doIt();
       expect(projects.length, equals(++projectCount));
       expect(reaction.reactedOnAdd, isTrue);
 
       var description = 'Documenting dartling.';
       var setAttributeAction =
           new SetAttributeAction(session, project, 'description', description);
-      setAttributeAction.doit();
+      setAttributeAction.doIt();
       expect(reaction.reactedOnUpdate, isTrue);
       models.cancelActionReaction(reaction);
     });
