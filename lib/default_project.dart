@@ -33,7 +33,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 library default_project;
 
-import 'package:dartling/dartling.dart';
+import 'package:ednet_core/ednet_core.dart';
 
 part 'default_project/default/project/json/data.dart';
 part 'default_project/default/project/json/model.dart';

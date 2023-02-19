@@ -1,5 +1,5 @@
 
-import 'package:dartling/dartling.dart';
+import 'package:ednet_core/ednet_core.dart';
 import 'package:unittest/unittest.dart';
 
 import 'package:dartling_default_app/default_project.dart';

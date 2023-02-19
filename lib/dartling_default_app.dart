@@ -34,7 +34,7 @@ library dartling_default_app;
 
 import 'dart:html';
 
-import 'package:dartling/dartling.dart';
+import 'package:ednet_core/ednet_core.dart';
 // http://stackoverflow.com/questions/16126579/how-do-i-format-a-date-with-dart
 import 'package:intl/intl.dart';
 

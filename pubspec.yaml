@@ -1,13 +1,17 @@
 name: dartling_default_app
 version: 1.0.3
-author: Dzenan Ridjanovic <dzenanr@gmail.com>
 description: dartling default app is used to interpret a dartling model and provide a web app to navigate through the model starting by its entry points
 homepage: https://github.com/dzenanr/dartling_default_app
 documentation: http://goo.gl/Fd08zZ
+
 environment:
-  sdk: '>=0.8.10+8 <2.0.0'
+  sdk: '>=2.18.6 <3.0.0'
+  flutter: ">=3.3.10"
+
 dependencies:
-  browser: '>=0.9.0 <0.10.0'
-  dartling:
-    git: git://github.com/dzenanr/dartling.git
-  intl: '>=0.9.0 <0.10.0'
+  test: '>=0.12.0 <2.0.0'
+
+  ednet_core:
+    path: ../../../ednet_cms/packages/ednet_core
+
+  intl:  ^0.18.0

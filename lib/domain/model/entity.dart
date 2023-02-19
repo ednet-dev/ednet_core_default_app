@@ -1,7 +1,6 @@
 part of dartling_default_app;
 
 class EntityTable {
-
   View view;
 
   bool hidden = true;
@@ -9,6 +8,8 @@ class EntityTable {
   EntityTable(this.view);
 
   bool get shown => !hidden;
+
+  get default_title => 'Default Title';
 
   void show() {
     if (hidden) {
@@ -19,12 +20,12 @@ class EntityTable {
       if (view.title == null) {
         title = view.did.toUpperCase();
       } else {
-        title = view.title;
+        title = view.title ?? default_title;
       }
       section = '${section}    ${title} \n';
       section = '${section}  </caption> \n';
       List<Attribute> attributes;
-      if (view.essentialOnly) {
+      if (view?.essentialOnly ?? false) {
         attributes = view.entity.concept.essentialAttributes;
       } else {
         attributes = view.entity.concept.attributes.toList();
@@ -52,9 +53,11 @@ class EntityTable {
             section = '${section}      ${value} \n';
           }
         } else if (attribute.type.code == 'Uri') {
-          section = '${section}      <a href="${value}">${attribute.code}</a> \n';
+          section =
+              '${section}      <a href="${value}">${attribute.code}</a> \n';
         } else if (attribute.type.code == 'Email') {
-          section = '${section}      <a href="mailto:${value}">${attribute.code}</a> \n';
+          section =
+              '${section}      <a href="mailto:${value}">${attribute.code}</a> \n';
         } else {
           section = '${section}      ${value} \n';
         }
@@ -71,12 +74,10 @@ class EntityTable {
        * provides functionality global to the document (such as obtaining the
        * page's URL and creating new elements in the document).
        */
-      view.document.querySelector('#${view.did}').setInnerHtml(
-          section,
+      view.document.querySelector('#${view.did}').setInnerHtml(section,
           validator: new NodeValidatorBuilder()
             ..allowHtml5()
-            ..allowElement('a', attributes: ['href'])
-      );
+            ..allowElement('a', attributes: ['href']));
       hidden = false;
     }
   }
@@ -87,5 +88,4 @@ class EntityTable {
       hidden = true;
     }
   }
-
 }

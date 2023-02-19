@@ -1,15 +1,14 @@
 part of dartling_default_app;
 
 class View {
-
-  Repo repo;
-  Entities entities;
-  ConceptEntity entity;
+  Repo? repo;
+  Entities? entities;
+  Entity? entity;
 
   Document document;
   String did;
-  String title;
-  bool essentialOnly = true;
+  String? title;
+  bool? essentialOnly = true;
 
   View(this.document, this.did);
 
@@ -22,6 +21,4 @@ class View {
     title = otherView.title;
     essentialOnly = otherView.essentialOnly;
   }
-
 }
-
