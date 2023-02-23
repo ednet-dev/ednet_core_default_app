@@ -22,6 +22,8 @@ class ProjectEntries extends ModelEntries {
     if (concept.code == "Project") {
       return new Projects(concept);
     }
+
+    throw new ConceptError("${conceptCode} is not a Project concept.") ;
   }
 
   Entity newEntity(String conceptCode) {

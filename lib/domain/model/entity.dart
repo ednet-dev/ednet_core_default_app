@@ -1,4 +1,4 @@
-part of dartling_default_app;
+part of ednet_core_default_app;
 
 class EntityTable {
   View view;

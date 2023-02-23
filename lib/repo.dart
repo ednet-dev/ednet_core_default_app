@@ -1,4 +1,4 @@
-part of dartling_default_app;
+part of ednet_core_default_app;
 
 class RepoMainSection {
 
@@ -44,8 +44,8 @@ class RepoMenuBar {
     section = '${section}    <li>About \n';
     section = '${section}      <ul> \n';
     section = '${section}        <li> \n';
-    section = '${section}          <a href="https://github.com/dzenanr/dartling"> \n';
-    section = '${section}            dartling \n';
+    section = '${section}          <a href="https://github.com/ednet-dev/ednet_core"> \n';
+    section = '${section}            ednet_core \n';
     section = '${section}          </a> in \n';
     section = '${section}          <a href="http://www.dartlang.org/"> \n';
     section = '${section}            Dart \n';

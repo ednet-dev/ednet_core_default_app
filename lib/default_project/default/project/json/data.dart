@@ -12,21 +12,21 @@ var defaultProjectDataJson = r'''
          "concept":"Project",
          "entities":[
             {
-               "description":"Creating a model of dartling concepts based on MagicBoxes.",
+               "description":"Creating a model of ednet_core concepts based on MagicBoxes.",
                "oid":"1344888717721",
-               "name":"dartling Design",
+               "name":"ednet_core Design",
                "code":null
             },
             {
                "description":"Programming the meta model and the generic model.",
                "oid":"1344888717722",
-               "name":"dartling Prototype",
+               "name":"ednet_core Prototype",
                "code":null
             },
             {
-               "description":"Programming dartling.",
+               "description":"Programming ednet_core.",
                "oid":"1344888717723",
-               "name":"dartling",
+               "name":"ednet_core",
                "code":null
             }
          ]
