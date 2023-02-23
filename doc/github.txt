@@ -31,7 +31,7 @@ http://help.github.com/create-a-repo/
 Create a New Repository at GitHub (without README, since cloning will not be used)
 Repository Name: ednet_core_default_app
 Description:
-  ednet core default app is used to interpret a dartling model and provide a web
+  ednet core default app is used to interpret a EDNetCore model and provide a web
   app to navigate through the model starting by entry points.
 
 Next steps:

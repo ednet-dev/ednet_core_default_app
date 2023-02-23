@@ -1,10 +1,8 @@
-# ![Alt dartling](https://raw.github.com/dzenanr/dartling/master/resources/dartling.png) **default app**
-
 [EDNetCore](https://github.com/ednet-dev/ednet_core) is a domain model framework.
 Its open source license is the 3-clause BSD license --
 ["New BSD License" or "Modified BSD License"](http://en.wikipedia.org/wiki/BSD_license).
 
-dartling model consists of concepts, concept attributes and concept neighbors.
+EDNetCore model consists of concepts, concept attributes and concept neighbors.
 Two neighbors make a relationship between two concepts. A relationship has two
 directions, each direction going from one concept to another neighbor concept.
 Standard one-to-many and many-to-many relationships are supported. When both
@@ -19,12 +17,12 @@ A graphical model designed in
 In ednet_core_gen, the json document is used to generate code for the model and
 its context project.
 
-ednet core default app is used to interpret a dartling model and navigate
+ednet core default app is used to interpret a EDNetCore model and navigate
 through the model, starting by entry points.
 
 ## More Details
 
-[**dartling: Domain Model Framework**](https://docs.google.com/document/d/1xzjqxbJdYxn6Qpx_kIhCqCCjk5yabbXiOng8sixMjdc/edit?usp=sharing)
+[**ednet_core: Domain Model Framework**](https://docs.google.com/document/d/1xzjqxbJdYxn6Qpx_kIhCqCCjk5yabbXiOng8sixMjdc/edit?usp=sharing)
 
 [*Learning Dart*](http://www.packtpub.com/learning-dart/book) by Dzenan Ridjanovic & Ivo Balbaert
 
