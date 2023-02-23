@@ -2,7 +2,7 @@ part of default_project;
 
 // data/gen/default/repository.dart
 
-class DefaultRepo extends Repo {
+class DefaultRepo extends Repository {
 
   static final defaultDomainCode = "Default";
   static final defaultProjectModelCode = "Project";

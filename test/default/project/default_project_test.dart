@@ -4,7 +4,7 @@ import 'package:unittest/unittest.dart';
 
 import 'package:dartling_default_app/default_project.dart';
 
-testDefaultProject(Repo repo, String domainCode, String modelCode) {
+testDefaultProject(Repository repo, String domainCode, String modelCode) {
   DefaultModels models;
   ProjectEntries entries;
   group("Testing ${domainCode}.${modelCode}", () {

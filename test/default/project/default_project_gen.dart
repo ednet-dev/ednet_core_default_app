@@ -36,7 +36,7 @@ import 'package:ednet_core/ednet_core.dart';
 import 'package:dartling_default_app/default_project.dart';
 
 genCode() {
-  var repo = new Repo();
+  var repo = new Repository();
 
   // change "Dartling" to "YourDomainName"
   var defaultDomain = new Domain("Default");

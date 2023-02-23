@@ -1,7 +1,7 @@
 part of dartling_default_app;
 
 class View {
-  Repo? repo;
+  Repository? repo;
   Entities? entities;
   Entity? entity;
 
