@@ -12,13 +12,11 @@ class View {
 
   View(this.document, this.did);
 
-  View.from(View otherView, this.did) {
-    repo = otherView.repo;
-    entities = otherView.entities;
-    entity = otherView.entity;
-
-    document = otherView.document;
-    title = otherView.title;
-    essentialOnly = otherView.essentialOnly;
-  }
+  View.from(View otherView, this.did)
+      : repo = otherView.repo,
+        entities = otherView.entities,
+        entity = otherView.entity,
+        document = otherView.document,
+        title = otherView.title,
+        essentialOnly = otherView.essentialOnly;
 }
