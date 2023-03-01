@@ -25,16 +25,16 @@ class EntityTable {
       section = '${section}    ${title} \n';
       section = '${section}  </caption> \n';
       List<Attribute> attributes;
-      if (view?.essentialOnly ?? false) {
-        attributes = view.entity.concept.essentialAttributes;
+      if (view.essentialOnly ?? false) {
+        attributes = view.entity!.concept.essentialAttributes;
       } else {
-        attributes = view.entity.concept.attributes.toList();
+        attributes = view.entity!.concept.attributes.toList();
       }
       String label;
       var value;
-      for (Attribute attribute in attributes) {
+      for (Attribute attribute in attributes.whereType<Attribute>()) {
         label = attribute.codeFirstLetterUpper;
-        value = view.entity.getAttribute(attribute.code);
+        value = view.entity!.getAttribute(attribute.code);
         section = '${section}  <tr> \n';
         section = '${section}    <th> \n';
         section = '${section}      ${label} \n';
@@ -42,7 +42,7 @@ class EntityTable {
         section = '${section}    <td> \n';
         if (attribute.sensitive) {
           section = '${section}      ******** \n';
-        } else if (attribute.type.code == 'DateTime') {
+        } else if (attribute.type!.code == 'DateTime') {
           if (value != null) {
             // http://api.dartlang.org/docs/releases/latest/intl/DateFormat.html
             //var formatter = new DateFormat.yMd();
@@ -52,10 +52,10 @@ class EntityTable {
           } else {
             section = '${section}      ${value} \n';
           }
-        } else if (attribute.type.code == 'Uri') {
+        } else if (attribute.type!.code == 'Uri') {
           section =
               '${section}      <a href="${value}">${attribute.code}</a> \n';
-        } else if (attribute.type.code == 'Email') {
+        } else if (attribute.type!.code == 'Email') {
           section =
               '${section}      <a href="mailto:${value}">${attribute.code}</a> \n';
         } else {
@@ -74,7 +74,7 @@ class EntityTable {
        * provides functionality global to the document (such as obtaining the
        * page's URL and creating new elements in the document).
        */
-      view.document.querySelector('#${view.did}').setInnerHtml(section,
+      view.document.querySelector('#${view.did}')?.setInnerHtml(section,
           validator: new NodeValidatorBuilder()
             ..allowHtml5()
             ..allowElement('a', attributes: ['href']));
@@ -84,7 +84,7 @@ class EntityTable {
 
   void hide() {
     if (shown) {
-      view.document.querySelector('#${view.did}').innerHtml = '';
+      view.document.querySelector('#${view.did}')?.innerHtml = '';
       hidden = true;
     }
   }

@@ -4,9 +4,9 @@ part of default_project;
 
 abstract class ProjectGen extends Entity<Project> {
 
-  ProjectGen(Concept concept) : super.of(concept);
+  ProjectGen(Concept concept) : super(concept);
 
-  ProjectGen.withId(Concept concept, String name) : super.of(concept) {
+  ProjectGen.withId(Concept concept, String name) : super(concept) {
     setAttribute("name", name);
   }
 
@@ -26,7 +26,7 @@ abstract class ProjectGen extends Entity<Project> {
 
 abstract class ProjectsGen extends Entities<Project> {
 
-  ProjectsGen(Concept concept) : super.of(concept);
+  ProjectsGen(Concept concept) : super(concept);
 
   Projects newEntities() => new Projects(concept);
 
