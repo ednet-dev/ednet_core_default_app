@@ -11,7 +11,7 @@ relationships between the same but different concepts, the relationships are
 twins.
 
 A graphical model designed in
-[Model Concepts](https://github.com/dzenanr/magic_boxes) is transformed into
+[Model Concepts](https://github.com/ednet-dev/magic_boxes) is transformed into
 [json](http://www.json.org/) representation that is imported to
 [EDNetCoreGen](https://github.com/ednet-dev/ednet_core_gen).
 In ednet_core_gen, the json document is used to generate code for the model and

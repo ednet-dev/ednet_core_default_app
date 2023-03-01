@@ -40,7 +40,7 @@ Next steps:
   git status
   git add .
   git commit -m 'initial version'
-  git remote add origin https://github.com/dzenanr/ednet_core_default_app.git
+  git remote add origin https://github.com/ednet-dev/ednet_core_default_app.git
   git push -u origin master
 
 ----------------------------------------------------------------------
@@ -50,14 +50,14 @@ Git with Git Bash
 Clone a remote repository into a local repository.
 
 cd git/dart/model
-git clone https://github.com/dzenanr/ednet_core_default_app.git
+git clone https://github.com/ednet-dev/ednet_core_default_app.git
 cd ednet_core_default_app
 
 Read+Write:
-https://github.com/dzenanr/ednet_core_default_app.git
+https://github.com/ednet-dev/ednet_core_default_app.git
 
 Read only:
-git://github.com/dzenanr/ednet_core_default_app.git
+git://github.com/ednet-dev/ednet_core_default_app.git
 
 Get the latest changes from the remote repository
 

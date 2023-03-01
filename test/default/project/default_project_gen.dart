@@ -36,7 +36,7 @@ import 'package:ednet_core/ednet_core.dart';
 import 'package:ednet_core_default_app/default_project.dart';
 
 genCode() {
-  var repo = new Repository();
+  var repo = new CoreRepository();
 
   // change "EDNetCore" to "YourDomainName"
   var defaultDomain = new Domain("Default");

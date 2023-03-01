@@ -4,7 +4,7 @@ import 'package:unittest/unittest.dart';
 
 import 'package:ednet_core_default_app/default_project.dart';
 
-testDefaultProject(Repository repo, String domainCode, String modelCode) {
+testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
   DefaultModels models;
   ProjectEntries entries;
   group("Testing ${domainCode}.${modelCode}", () {
@@ -116,9 +116,9 @@ testDefaultProject(Repository repo, String domainCode, String modelCode) {
       projects.errors.display(title:'Add Project Pre Validation');
     });
     test('Find Project by New Oid', () {
-      var dartlingOid = new Oid.ts(1345648254063);
+      var ednetCoreOid = new Oid.ts(1345648254063);
       var projects = entries.projects;
-      var project = projects.singleWhereOid(dartlingOid);
+      var project = projects.singleWhereOid(ednetCoreOid);
       expect(project, isNull);
     });
     test('Find Project by Saved Oid', () {
@@ -128,8 +128,8 @@ testDefaultProject(Repository repo, String domainCode, String modelCode) {
       entries.fromJsonToData();
       expect(projects.isEmpty, isFalse);
 
-      var dartlingOid = new Oid.ts(1344888717723);
-      var project = projects.singleWhereOid(dartlingOid);
+      var ednetCoreOid = new Oid.ts(1344888717723);
+      var project = projects.singleWhereOid(ednetCoreOid);
       expect(project, isNotNull);
       expect(project.name, equals('ednet_core'));
     });
@@ -301,9 +301,9 @@ testDefaultProject(Repository repo, String domainCode, String modelCode) {
 
       //projects.display('After Update New Project Id with Success');
 
-      var marketingdartling = projects.singleWhereAttributeId('name', newName);
-      expect(marketingdartling, isNotNull);
-      expect(marketingdartling.name, equals(newName));
+      var marketingednetCore = projects.singleWhereAttributeId('name', newName);
+      expect(marketingednetCore, isNotNull);
+      expect(marketingednetCore.name, equals(newName));
     });
     test('Update New Project Description with Failure', () {
       var projects = entries.projects;

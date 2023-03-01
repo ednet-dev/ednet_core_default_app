@@ -1,7 +1,7 @@
 part of ednet_core_default_app;
 
 class View {
-  Repository? repo;
+  CoreRepository? repo;
   Entities? entities;
   Entity? entity;
 
