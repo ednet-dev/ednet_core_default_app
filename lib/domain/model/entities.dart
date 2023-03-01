@@ -32,7 +32,7 @@ class EntitiesSimpleTable {
       String label;
       var value;
       section = '${section}  <tr> \n';
-      for (Attribute attribute in attributes) {
+      for (Attribute attribute in attributes.whereType<Attribute>()) {
         label = attribute.codeFirstLetterUpper;
         section = '${section}    <th> \n';
         section = '${section}      ${label} \n';
@@ -41,7 +41,7 @@ class EntitiesSimpleTable {
       section = '${section}  </tr> \n';
       for (var entity in view.entities) {
         section = '${section}  <tr> \n';
-        for (Attribute attribute in attributes) {
+        for (Attribute attribute in attributes.whereType<Attribute>()) {
           value = entity.getAttribute(attribute.code);
           section = '${section}    <td> \n';
           if (attribute.sensitive) {
@@ -130,7 +130,7 @@ class EntitiesTable {
       String label;
       var value;
       section = '${section}  <tr> \n';
-      for (Attribute attribute in attributes) {
+      for (Attribute attribute in attributes.whereType<Attribute>()) {
         label = attribute.codeFirstLetterUpper;
         section = '${section}    <th> \n';
         section = '${section}      ${label} \n';
@@ -144,13 +144,13 @@ class EntitiesTable {
         section = '${section}    </th> \n';
       }
 
-      for (Parent parent in parents) {
+      for (Parent parent in parents.whereType<Parent>()) {
         label = parent.codeFirstLetterUpper;
         section = '${section}    <th> \n';
         section = '${section}      ${label} \n';
         section = '${section}    </th> \n';
       }
-      for (Child child in children) {
+      for (Child child in children.whereType<Child>()) {
         label = child.codeFirstLetterUpper;
         section = '${section}    <th> \n';
         section = '${section}      ${label} \n';
@@ -161,7 +161,7 @@ class EntitiesTable {
 
       for (var entity in view.entities) {
         section = '${section}  <tr> \n';
-        for (Attribute attribute in attributes) {
+        for (Attribute attribute in attributes.whereType<Attribute>()) {
           value = entity.getAttribute(attribute.code);
           section = '${section}    <td> \n';
           if (attribute.sensitive) {
@@ -193,7 +193,7 @@ class EntitiesTable {
           section = '${section}    </td> \n';
         }
 
-        for (Parent parent in parents) {
+        for (Parent parent in parents.whereType<Parent>()) {
           section = '${section}    <td> \n';
           var parentEntity = entity.getParent(parent.code);
           if (parentEntity != null) {
@@ -205,7 +205,7 @@ class EntitiesTable {
           }
           section = '${section}    </td> \n';
         }
-        for (Child child in children) {
+        for (Child child in children.whereType<Child>()) {
           section = '${section}    <td id="${child.code}Of${entity.oid}"> \n';
           section = '${section}    </td> \n';
         }
@@ -260,7 +260,7 @@ class EntitiesTable {
           entityTdElement.children.add(entityButton);
         }
 
-        for (Child child in children) {
+        for (Child child in children.whereType<Child>()) {
           Element childTdElement =
               view.document.querySelector('#${child.code}Of${entity.oid}');
           ButtonElement childButton = new ButtonElement();
