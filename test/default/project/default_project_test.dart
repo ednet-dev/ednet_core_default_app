@@ -79,10 +79,10 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       var added = projects.add(project);
       expect(added, isFalse);
       expect(projects.length, equals(projectCount));
-      expect(projects.errors.length, equals(1));
-      expect(projects.errors.toList()[0].category, equals('required'));
+      expect(projects.exceptions..length, equals(1));
+      expect(projects.exceptions..toList()[0].category, equals('required'));
 
-      projects.errors.display(title:'Add Project Required Error');
+      projects.exceptions..display(title:'Add Project Required Error');
     });
     test('Add Project Unique Error', () {
       var projects = entries.projects;
@@ -94,10 +94,10 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       var added = projects.add(project);
       expect(added, isFalse);
       expect(projects.length, equals(projectCount));
-      expect(projects.errors.length, equals(1));
-      expect(projects.errors.toList()[0].category, equals('unique'));
+      expect(projects.exceptions..length, equals(1));
+      expect(projects.exceptions..toList()[0].category, equals('unique'));
 
-      projects.errors.display(title:'Add Project Unique Error');
+      projects.exceptions..display(title:'Add Project Unique Error');
     });
     test('Add Project Pre Validation', () {
       var projects = entries.projects;
@@ -110,10 +110,10 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       var added = projects.add(project);
       expect(added, isFalse);
       expect(projects.length, equals(projectCount));
-      expect(projects.errors, hasLength(1));
-      expect(projects.errors.toList()[0].category, equals('pre'));
+      expect(projects.exceptions., hasLength(1));
+      expect(projects.exceptions..toList()[0].category, equals('pre'));
 
-      projects.errors.display(title:'Add Project Pre Validation');
+      projects.exceptions..display(title:'Add Project Pre Validation');
     });
     test('Find Project by New Oid', () {
       var ednetCoreOid = new Oid.ts(1345648254063);
@@ -170,7 +170,7 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       var projects = entries.projects;
       var programmingProjects = projects.selectWhere((p) => p.onProgramming);
       expect(programmingProjects.isEmpty, isFalse);
-      expect(programmingProjects.source.isEmpty, isFalse);
+      expect(programmingProjects.source?.isEmpty, isFalse);
 
       var projectConcept = projects.concept;
       var programmingProject = new Project(projectConcept);
@@ -190,7 +190,7 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
 
       Projects programmingProjects = projects.selectWhere((p) => p.onProgramming);
       expect(programmingProjects.isEmpty, isFalse);
-      expect(programmingProjects.source.isEmpty, isFalse);
+      expect(programmingProjects.source?.isEmpty, isFalse);
 
       var searchName = 'ednet_core';
       var project = programmingProjects.findByNameId(searchName);
@@ -206,8 +206,8 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       var orderedProjects = projects.order();
       expect(orderedProjects.isEmpty, isFalse);
       expect(orderedProjects.length, equals(projects.length));
-      expect(orderedProjects.source.isEmpty, isFalse);
-      expect(orderedProjects.source.length, equals(projects.length));
+      expect(orderedProjects.source?.isEmpty, isFalse);
+      expect(orderedProjects.source?.length, equals(projects.length));
       orderedProjects.display(title:'Order Projects by Name Id');
 
       projects.order((m,n) => m.nameCompareTo(n));
@@ -258,7 +258,7 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       var beforeNameUpdate = marketing.name;
       try {
         marketing.name = 'Marketing ednet_core';
-      } on UpdateError catch (e) {
+      } on UpdateException catch (e) {
         expect(marketing.name, equals(beforeNameUpdate));
       }
     });
