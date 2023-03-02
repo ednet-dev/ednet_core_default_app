@@ -1,4 +1,4 @@
-## Version history of [ednet_core_default_app](http://pub.dartlang.org/packages/ednet_core_default_app)
+## Version history of [ednet_core_default_app](http://pub.dartlang.org/packages/ednet_cms)
 based on [Semantic Versioning](http://semver.org/)
 
 *1.0.3* 2013-11-25

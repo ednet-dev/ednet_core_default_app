@@ -20,14 +20,8 @@ its context project.
 ednet core default app is used to interpret a EDNetCore model and navigate
 through the model, starting by entry points.
 
-## More Details
+### Based On
 
-[**ednet_core: Domain Model Framework**](https://docs.google.com/document/d/1xzjqxbJdYxn6Qpx_kIhCqCCjk5yabbXiOng8sixMjdc/edit?usp=sharing)
-
-[*Learning Dart*](http://www.packtpub.com/learning-dart/book) by Dzenan Ridjanovic & Ivo Balbaert
-
-[*On Dart*](http://ondart.me/)
-
-[*Version History*](CHANGELOG.md)
+[dartling default app](https://github.com/dzenanr/dartling_default_app)
 
 
