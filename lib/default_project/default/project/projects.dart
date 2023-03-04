@@ -22,8 +22,8 @@ class Projects extends ProjectsGen {
     return singleWhereId(new Id(concept)..setAttribute('name', name));
   }
 
-  bool preAdd(Project project) {
-    bool validation = super.preAdd(project);
+  bool isValid(Project project) {
+    bool validation = super.isValid(project);
     if (validation) {
       validation = project.name.length <= 32;
       if (!validation) {
