@@ -1,7 +1,6 @@
 part of ednet_core_default_app;
 
 class RepoMainSection {
-
   View view;
 
   RepoMainSection(this.view) {
@@ -11,30 +10,28 @@ class RepoMainSection {
     var entitiesView = new View.from(view, "entities");
     new RepoEntitiesSection(entitiesView);
   }
-
 }
 
 class RepoMenuBar {
-
   View view;
 
   RepoMenuBar(this.view) {
     var repo = view.repo;
-    var domains = repo.domains;
+    var domains = repo?.domains;
     String section = '';
     section = '${section}<nav> \n';
     section = '${section}  <ul> \n';
-    for (Domain domain in domains) {
-      DomainModels domainModels = repo.getDomainModels(domain.code);
+    for (Domain domain in domains!) {
+      DomainModels? domainModels = repo?.getDomainModels(domain.code!);
       for (Model model in domain.models) {
         section = '${section}    <li>${domain.code}.${model.code} \n';
         section = '${section}      <ul> \n';
-        ModelEntries modelEntries = domainModels.getModelEntries(model.code);
+        ModelEntries? modelEntries = domainModels?.getModelEntries(model.code!);
         for (Concept concept in model.entryConcepts) {
-          Entities entryEntities = modelEntries.getEntry(concept.code);
+          Entities entryEntities = modelEntries!.getEntry(concept.code!);
           section = '${section}        <li><button id="${domain.code}'
-                    '${model.code}${concept.code}Button">Show ${concept.codes}'
-                    '</button></li> \n';
+              '${model.code}${concept.code}Button">Show ${concept.codes}'
+              '</button></li> \n';
         }
         section = '${section}      </ul> \n';
         section = '${section}    </li> \n';
@@ -44,7 +41,8 @@ class RepoMenuBar {
     section = '${section}    <li>About \n';
     section = '${section}      <ul> \n';
     section = '${section}        <li> \n';
-    section = '${section}          <a href="https://github.com/ednet-dev/ednet_core"> \n';
+    section =
+        '${section}          <a href="https://github.com/ednet-dev/ednet_core"> \n';
     section = '${section}            ednet_core \n';
     section = '${section}          </a> in \n';
     section = '${section}          <a href="http://www.dartlang.org/"> \n';
@@ -57,27 +55,27 @@ class RepoMenuBar {
     section = '${section}  </ul> \n';
     section = '${section}</nav> \n';
     //view.document.query('#${view.did}').innerHtml = section;
-    view.document.querySelector('#${view.did}').setInnerHtml(
-        section,
+    view.document.querySelector('#${view.did}')?.setInnerHtml(section,
         validator: new NodeValidatorBuilder()
-        ..allowHtml5()
-          ..allowElement('a', attributes: ['href'])
-    );
+          ..allowHtml5()
+          ..allowElement('a', attributes: ['href']));
 
     for (Domain domain in domains) {
-      DomainModels domainModels = repo.getDomainModels(domain.code);
+      DomainModels? domainModels = repo?.getDomainModels(domain.code!);
       for (Model model in domain.models) {
-        ModelEntries modelEntries = domainModels.getModelEntries(model.code);
+        ModelEntries? modelEntries = domainModels?.getModelEntries(model.code!);
         for (Concept concept in model.entryConcepts) {
-          Entities entryEntities = modelEntries.getEntry(concept.code);
-          ButtonElement buttonElement =
-              document.querySelector('#${domain.code}${model.code}${concept.code}Button');
-          View entryEntitiesView = new View.from(view, concept.codesFirstLetterLower);
+          Entities entryEntities = modelEntries!.getEntry(concept.code!);
+          Element? buttonElement = document.querySelector(
+              '#${domain.code}${model.code}${concept.code}Button');
+          View entryEntitiesView =
+              new View.from(view, concept.codesFirstLetterLower);
           entryEntitiesView.entities = entryEntities;
           entryEntitiesView.title = concept.codes;
-          EntitiesTable entryEntitiesTable = new EntitiesTable(entryEntitiesView);
-          buttonElement.onClick.listen((MouseEvent e) {
-            if (buttonElement.text.startsWith('Show')) {
+          EntitiesTable entryEntitiesTable =
+              new EntitiesTable(entryEntitiesView);
+          buttonElement?.onClick.listen((MouseEvent e) {
+            if (buttonElement.text!.startsWith('Show')) {
               entryEntitiesTable.show();
               buttonElement.text = 'Hide ${concept.codes}';
             } else {
@@ -89,17 +87,15 @@ class RepoMenuBar {
       }
     }
   }
-
 }
 
 class RepoEntitiesSection {
-
   View view;
 
   RepoEntitiesSection(this.view) {
-    var domains = view.repo.domains;
+    var domains = view.repo?.domains;
     String section = '';
-    for (Domain domain in domains) {
+    for (Domain domain in domains!) {
       for (Model model in domain.models) {
         for (Concept entryConcept in model.entryConcepts) {
           section =
@@ -109,11 +105,11 @@ class RepoEntitiesSection {
               entryConcept.childCodeInternalPaths;
           for (String childCodeInternalPath in childCodeInternalPathList) {
             section = '${section}<section id="${childCodeInternalPath}">'
-                      '</section>  \n';
+                '</section>  \n';
           }
         }
         for (Concept concept in model.concepts) {
-          String entryConceptThisConceptInternalPath =
+          String? entryConceptThisConceptInternalPath =
               concept.entryConceptThisConceptInternalPath;
           section =
               '${section}<section id="${entryConceptThisConceptInternalPath}">'
@@ -121,10 +117,6 @@ class RepoEntitiesSection {
         }
       }
     }
-    view.document.querySelector('#${view.did}').innerHtml = section;
+    view.document.querySelector('#${view.did}')?.innerHtml = section;
   }
-
 }
-
-
-

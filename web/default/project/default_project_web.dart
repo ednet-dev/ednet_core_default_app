@@ -1,4 +1,3 @@
-
 /*
 http://opensource.org/licenses/
 
@@ -39,14 +38,14 @@ import 'package:ednet_core_default_app/ednet_core_default_app.dart';
 import 'package:ednet_core_default_app/default_project.dart';
 
 initDefaultData(DefaultRepo defaultRepo) {
-   var defaultModels =
-       defaultRepo.getDomainModels(DefaultRepo.defaultDomainCode);
+  var defaultModels =
+      defaultRepo.getDomainModels(DefaultRepo.defaultDomainCode);
 
-   var defaultProjectEntries =
-       defaultModels.getModelEntries(DefaultRepo.defaultProjectModelCode);
-   initDefaultProject(defaultProjectEntries);
-   defaultProjectEntries.display();
-   defaultProjectEntries.displayJson();
+  var defaultProjectEntries =
+      defaultModels?.getModelEntries(DefaultRepo.defaultProjectModelCode);
+  initDefaultProject(defaultProjectEntries);
+  defaultProjectEntries!.display();
+  defaultProjectEntries!.displayJson();
 }
 
 showDefaultData(DefaultRepo defaultRepo) {
@@ -60,6 +59,3 @@ void main() {
   initDefaultData(defaultRepo);
   showDefaultData(defaultRepo);
 }
-
-
-

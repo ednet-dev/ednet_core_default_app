@@ -34,7 +34,7 @@ class EntityTable {
       var value;
       for (Attribute attribute in attributes.whereType<Attribute>()) {
         label = attribute.codeFirstLetterUpper;
-        value = view.entity!.getAttribute(attribute.code);
+        value = view.entity!.getAttribute(attribute.code!);
         section = '${section}  <tr> \n';
         section = '${section}    <th> \n';
         section = '${section}      ${label} \n';

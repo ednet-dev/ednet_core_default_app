@@ -1,4 +1,3 @@
-
 /*
 http://opensource.org/licenses/
 
@@ -53,14 +52,14 @@ genCode() {
 }
 
 initDefaultData(DefaultRepo defaultRepo) {
-   var defaultModels =
-       defaultRepo.getDomainModels(DefaultRepo.defaultDomainCode);
+  var defaultModels =
+      defaultRepo.getDomainModels(DefaultRepo.defaultDomainCode);
 
-   var defaultProjectEntries =
-       defaultModels.getModelEntries(DefaultRepo.defaultProjectModelCode);
-   initDefaultProject(defaultProjectEntries);
-   defaultProjectEntries.display();
-   defaultProjectEntries.displayJson();
+  var defaultProjectEntries =
+      defaultModels?.getModelEntries(DefaultRepo.defaultProjectModelCode);
+  initDefaultProject(defaultProjectEntries);
+  defaultProjectEntries!.display();
+  defaultProjectEntries.displayJson();
 }
 
 void main() {

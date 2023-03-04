@@ -1,7 +1,6 @@
 part of ednet_core_default_app;
 
 class EntitiesSimpleTable {
-
   View view;
 
   bool hidden = true;
@@ -19,15 +18,15 @@ class EntitiesSimpleTable {
       if (view.title == null) {
         title = view.did.toUpperCase();
       } else {
-        title = view.title;
+        title = view.title ?? '';
       }
       section = '${section}    ${title}';
       section = '${section}  </caption> \n';
       List<Attribute> attributes;
-      if (view.essentialOnly) {
-        attributes = view.entities.concept.essentialAttributes;
+      if (view.essentialOnly ?? false) {
+        attributes = view.entities!.concept!.essentialAttributes;
       } else {
-        attributes = view.entities.concept.attributes.toList();
+        attributes = view.entities!.concept!.attributes.toList();
       }
       String label;
       var value;
@@ -39,14 +38,14 @@ class EntitiesSimpleTable {
         section = '${section}    </th> \n';
       }
       section = '${section}  </tr> \n';
-      for (var entity in view.entities) {
+      for (var entity in view.entities!) {
         section = '${section}  <tr> \n';
         for (Attribute attribute in attributes.whereType<Attribute>()) {
-          value = entity.getAttribute(attribute.code);
+          value = entity.getAttribute(attribute.code!);
           section = '${section}    <td> \n';
           if (attribute.sensitive) {
             section = '${section}      ******** \n';
-          } else if (attribute.type.code == 'DateTime') {
+          } else if (attribute.type!.code == 'DateTime') {
             if (value != null) {
               // http://api.dartlang.org/docs/releases/latest/intl/DateFormat.html
               //var formatter = new DateFormat.yMd();
@@ -56,10 +55,12 @@ class EntitiesSimpleTable {
             } else {
               section = '${section}      ${value} \n';
             }
-          } else if (attribute.type.code == 'Uri') {
-            section = '${section}      <a href="${value}">${attribute.code}</a> \n';
-          } else if (attribute.type.code == 'Email') {
-            section = '${section}      <a href="mailto:${value}">${attribute.code}</a> \n';
+          } else if (attribute.type!.code == 'Uri') {
+            section =
+                '${section}      <a href="${value}">${attribute.code}</a> \n';
+          } else if (attribute.type!.code == 'Email') {
+            section =
+                '${section}      <a href="mailto:${value}">${attribute.code}</a> \n';
           } else {
             section = '${section}      ${value} \n';
           }
@@ -77,27 +78,23 @@ class EntitiesSimpleTable {
        * provides functionality global to the document (such as obtaining the
        * page's URL and creating new elements in the document).
        */
-      view.document.querySelector('#${view.did}').setInnerHtml(
-          section,
+      view.document.querySelector('#${view.did}')?.setInnerHtml(section,
           validator: new NodeValidatorBuilder()
             ..allowHtml5()
-            ..allowElement('a', attributes: ['href'])
-      );
+            ..allowElement('a', attributes: ['href']));
       hidden = false;
     }
   }
 
   void hide() {
     if (shown) {
-      view.document.querySelector('#${view.did}').innerHtml = '';
+      view.document.querySelector('#${view.did}')?.innerHtml = '';
       hidden = true;
     }
   }
-
 }
 
 class EntitiesTable {
-
   View view;
 
   bool hidden = true;
@@ -115,18 +112,18 @@ class EntitiesTable {
       if (view.title == null) {
         title = view.did.toUpperCase();
       } else {
-        title = view.title;
+        title = view.title!;
       }
       section = '${section}    ${title} \n';
       section = '${section}  </caption> \n';
       List<Attribute> attributes;
-      if (view.essentialOnly) {
-        attributes = view.entities.concept.essentialAttributes;
+      if (view.essentialOnly ?? false) {
+        attributes = view.entities!.concept!.essentialAttributes;
       } else {
-        attributes = view.entities.concept.attributes.toList();
+        attributes = view.entities!.concept!.attributes.toList();
       }
-      Parents parents = view.entities.concept.parents;
-      Children children = view.entities.concept.children;
+      Parents parents = view.entities!.concept!.parents;
+      Children children = view.entities!.concept!.children;
       String label;
       var value;
       section = '${section}  <tr> \n';
@@ -137,7 +134,7 @@ class EntitiesTable {
         section = '${section}    </th> \n';
       }
 
-      if (view.entities.concept.attributes.length > 0) {
+      if (view.entities!.concept!.attributes.length > 0) {
         label = 'Display';
         section = '${section}    <th> \n';
         section = '${section}      ${label} \n';
@@ -159,14 +156,14 @@ class EntitiesTable {
 
       section = '${section}  </tr> \n';
 
-      for (var entity in view.entities) {
+      for (var entity in view.entities!) {
         section = '${section}  <tr> \n';
         for (Attribute attribute in attributes.whereType<Attribute>()) {
-          value = entity.getAttribute(attribute.code);
+          value = entity.getAttribute(attribute.code!);
           section = '${section}    <td> \n';
           if (attribute.sensitive) {
             section = '${section}      ******** \n';
-          } else if (attribute.type.code == 'DateTime') {
+          } else if (attribute.type!.code == 'DateTime') {
             if (value != null) {
               // http://api.dartlang.org/docs/releases/latest/intl/DateFormat.html
               //var formatter = new DateFormat.yMd();
@@ -176,10 +173,12 @@ class EntitiesTable {
             } else {
               section = '${section}      ${value} \n';
             }
-          } else if (attribute.type.code == 'Uri') {
-            section = '${section}      <a href="${value}">${attribute.code}</a> \n';
-          } else if (attribute.type.code == 'Email') {
-            section = '${section}      <a href="mailto:${value}">${attribute.code}</a> \n';
+          } else if (attribute.type!.code == 'Uri') {
+            section =
+                '${section}      <a href="${value}">${attribute.code}</a> \n';
+          } else if (attribute.type!.code == 'Email') {
+            section =
+                '${section}      <a href="mailto:${value}">${attribute.code}</a> \n';
           } else {
             section = '${section}      ${value} \n';
           }
@@ -187,17 +186,16 @@ class EntitiesTable {
         }
 
         if (entity.concept.attributes.length > 0) {
-          section =
-            '${section}    '
-            '<td id="${entity.concept.codeFirstLetterLower}${entity.oid}"> \n';
+          section = '${section}    '
+              '<td id="${entity.concept.codeFirstLetterLower}${entity.oid}"> \n';
           section = '${section}    </td> \n';
         }
 
         for (Parent parent in parents.whereType<Parent>()) {
           section = '${section}    <td> \n';
-          var parentEntity = entity.getParent(parent.code);
+          Parent? parentEntity = entity.getParent(parent.code!) as Parent?;
           if (parentEntity != null) {
-            if (parentEntity.concept.identifier) {
+            if (parentEntity.identifier) {
               section = '${section}      ${parentEntity.id} \n';
             } else {
               section = '${section}      ${parentEntity.oid} \n';
@@ -221,27 +219,25 @@ class EntitiesTable {
        * provides functionality global to the document (such as obtaining the
        * page's URL and creating new elements in the document).
        */
-      view.document.querySelector('#${view.did}').setInnerHtml(
-          section,
+      view.document.querySelector('#${view.did}')?.setInnerHtml(section,
           validator: new NodeValidatorBuilder()
             ..allowHtml5()
-            ..allowElement('a', attributes: ['href'])
-      );
+            ..allowElement('a', attributes: ['href']));
 
-      for (var entity in view.entities) {
+      for (var entity in view.entities!) {
         if (entity.concept.attributes.length > 0) {
           Element entityTdElement = view.document.querySelector(
-              '#${entity.concept.codeFirstLetterLower}${entity.oid}');
+              '#${entity.concept.codeFirstLetterLower}${entity.oid}')!;
           ButtonElement entityButton = new ButtonElement();
           entityButton.text = 'Show';
-          var cssClasses = new List<String>();
+          var cssClasses = <String>[];
           cssClasses.add('button');
           entityButton.classes = cssClasses;
           String entryConceptThisConceptInternalPath =
-              entity.concept.entryConceptThisConceptInternalPath;
+              entity.concept.entryConceptThisConceptInternalPath!;
           View entityView =
               new View.from(view, entryConceptThisConceptInternalPath);
-          entityView.entity = entity;
+          entityView.entity = entity as Entity;
           entityView.title = entity.concept.code;
           entityView.essentialOnly = false;
           EntityTable entityTable = new EntityTable(entityView);
@@ -262,24 +258,24 @@ class EntitiesTable {
 
         for (Child child in children.whereType<Child>()) {
           Element childTdElement =
-              view.document.querySelector('#${child.code}Of${entity.oid}');
+              view.document.querySelector('#${child.code}Of${entity.oid}')!;
           ButtonElement childButton = new ButtonElement();
           childButton.text = 'Show';
-          var cssClasses = new List<String>();
+          var cssClasses = <String>[];
           cssClasses.add('button');
           childButton.classes = cssClasses;
 
           Concept sourceConcept = child.sourceConcept;
-          String entryConceptSourceConceptInternalPath =
+          String? entryConceptSourceConceptInternalPath =
               sourceConcept.entryConceptThisConceptInternalPath;
           Concept destinationConcept = child.destinationConcept;
           String childCodePath =
               '${entryConceptSourceConceptInternalPath}_${child.code}_'
               '${destinationConcept.code}';
           View childView = new View.from(view, childCodePath);
-          childView.entities = entity.getChild(child.code);
-          if (!childView.entities.isEmpty) {
-            if (entity.concept.identifier) {
+          childView.entities = entity.getChild(child.code) as Entities;
+          if (!childView.entities!.isEmpty) {
+            if ((entity as Property).identifier) {
               childView.title = '${entity.id}.${child.code}';
             } else {
               childView.title = '${entity}.${child.code}';
@@ -301,18 +297,15 @@ class EntitiesTable {
           }
         }
       }
-      print(view.document.querySelector('#${view.did}').innerHtml);
+      print(view.document.querySelector('#${view.did}')?.innerHtml);
       hidden = false;
     }
   }
 
   void hide() {
     if (shown) {
-      view.document.querySelector('#${view.did}').innerHtml = '';
+      view.document.querySelector('#${view.did}')?.innerHtml = '';
       hidden = true;
     }
   }
-
 }
-
-
