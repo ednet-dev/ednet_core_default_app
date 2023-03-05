@@ -3,9 +3,9 @@ part of default_project;
 // data/default/project/projects.dart
 
 class Project extends ProjectGen {
-  Project(Concept concept) : super(concept);
+  Project(Concept? concept) : super(concept);
 
-  Project.withId(Concept concept, String name) : super.withId(concept, name);
+  Project.withId(Concept? concept, String name) : super.withId(concept, name);
 
   bool get onProgramming => description.contains('Programming') ? true : false;
 }

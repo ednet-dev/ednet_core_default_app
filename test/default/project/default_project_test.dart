@@ -28,7 +28,7 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       projects.add(design);
       expect(projects.length, equals(++projectCount));
 
-      var prototype = new Project(projectConcept!);
+      var prototype = new Project(projectConcept);
       expect(prototype, isNotNull);
       prototype.name = 'ednet_core Prototype';
       prototype.description =
@@ -36,7 +36,7 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       projects.add(prototype);
       expect(projects.length, equals(++projectCount));
 
-      var production = new Project(projectConcept!);
+      var production = new Project(projectConcept);
       expect(production, isNotNull);
       production.name = 'ednet_core';
       production.description = 'Programming ednet_core.';
@@ -440,7 +440,7 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       action1.doIt();
       expect(projects.length, equals(++projectCount));
 
-      var project2 = new Project(projectConcept!);
+      var project2 = new Project(projectConcept);
       project2.name = 'Database design';
 
       var action2 = AddCommand(session, projects, project2);
@@ -479,7 +479,7 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       project1.name = 'Data modeling';
       var action1 = AddCommand(session, projects, project1);
 
-      var project2 = new Project(projectConcept!);
+      var project2 = new Project(projectConcept);
       project2.name = 'Database design';
       var action2 = AddCommand(session, projects, project2);
 
@@ -514,7 +514,7 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       project1.name = 'Data modeling';
       var action1 = AddCommand(session, projects, project1);
 
-      var project2 = new Project(projectConcept!);
+      var project2 = new Project(projectConcept);
       //project2.name = 'Database design';
       var action2 = AddCommand(session, projects, project2);
 

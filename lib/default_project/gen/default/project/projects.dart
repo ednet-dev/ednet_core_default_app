@@ -3,11 +3,11 @@ part of default_project;
 // data/gen/default/project/projects.dart
 
 abstract class ProjectGen extends Entity<Project> {
-  ProjectGen(Concept concept) {
+  ProjectGen(Concept? concept) {
     concept = concept;
   }
 
-  ProjectGen.withId(Concept concept, String name) {
+  ProjectGen.withId(Concept? concept, String name) {
     concept = concept;
     setAttribute("name", name);
   }
