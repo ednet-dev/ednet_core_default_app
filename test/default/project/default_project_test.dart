@@ -588,5 +588,17 @@ testDefaultData(DefaultRepo defaultRepo) {
 
 void main() {
   var defaultRepo = new DefaultRepo();
+  initDefaultData(defaultRepo);
   testDefaultData(defaultRepo);
+}
+
+initDefaultData(DefaultRepo defaultRepo) {
+  var defaultModels =
+  defaultRepo.getDomainModels(DefaultRepo.defaultDomainCode);
+
+  var defaultProjectEntries =
+  defaultModels?.getModelEntries(DefaultRepo.defaultProjectModelCode);
+  initDefaultProject(defaultProjectEntries);
+  defaultProjectEntries!.display();
+  defaultProjectEntries.displayJson();
 }

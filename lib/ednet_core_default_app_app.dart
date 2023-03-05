@@ -1,5 +1,5 @@
-// lib/ednet_core_default_app.dart
-/*
+  // lib/ednet_core_default_app_app.dart
+  /*
 http://opensource.org/licenses/
 
 http://en.wikipedia.org/wiki/BSD_license
@@ -31,37 +31,16 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-library ednet_core_default_app;
 
-import 'dart:html';
+  library ednet_core_default_app_app;
 
-import 'package:ednet_core/ednet_core.dart';
+  /* 
+  import "dart:flutter";
+  import "dart:math";
+  
 
-// http://stackoverflow.com/questions/16126579/how-do-i-format-a-date-with-dart
-import 'package:intl/intl.dart';
+  import "package:ednet_core/ednet_core.dart";
+  import "package:ednet_core_default_app/ednet_core_default_app.dart";
+  import "package:ednet_core_default_app/ednet_core_default_app.dart";
+  */
 
-part 'repo.dart';
-
-part 'view/param.dart';
-
-part 'domain/model/entities.dart';
-
-part 'domain/model/entity.dart';
-
-part "repository.dart";
-
-part "gen/ednet_core/i_domain_models.dart";
-
-part "gen/ednet_core/default_app/model_entries.dart";
-
-part "ednet_core/domain.dart";
-
-part "ednet_core/default_app/model.dart";
-
-part "ednet_core/default_app/json/data.dart";
-
-part "ednet_core/default_app/json/model.dart";
-
-part "ednet_core/default_app/projects.dart";
-
-part "gen/ednet_core/default_app/projects.dart";
