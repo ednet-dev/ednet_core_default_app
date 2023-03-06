@@ -427,7 +427,7 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       session.past.redo();
       expect(project.description, equals(action.after));
     });
-    test('Project Action with Multiple Undos and Redos ', () {
+    test('Project Command with Multiple Undos and Redos ', () {
       var projects = entries.projects;
       var projectCount = projects.length;
       var projectConcept = projects.concept;
@@ -528,7 +528,7 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
 
       projects.display(title: 'Transaction (with Id Error) Done');
     });
-    test('Reactions to Project Actions', () {
+    test('Reactions to Project Commands', () {
       var projects = entries.projects;
       var projectCount = projects.length;
       var projectConcept = projects.concept;
@@ -541,15 +541,15 @@ testDefaultProject(CoreRepository repo, String domainCode, String modelCode) {
       project.name = 'ednet_core Documentation';
 
       var session = models.newSession();
-      var addAction = AddCommand(session, projects, project);
-      addAction.doIt();
+      var addCommand = AddCommand(session, projects, project);
+      addCommand.doIt();
       expect(projects.length, equals(++projectCount));
       expect(reaction.reactedOnAdd, isTrue);
 
       var description = 'Documenting ednet_core.';
-      var setAttributeAction =
+      var setAttributeCommand =
           SetAttributeCommand(session, project, 'description', description);
-      setAttributeAction.doIt();
+      setAttributeCommand.doIt();
       expect(reaction.reactedOnUpdate, isTrue);
       models.cancelCommandReaction(reaction);
     });
