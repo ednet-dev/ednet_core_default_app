@@ -99,7 +99,7 @@
     },
     {
       "name": "intl",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/intl-0.18.0",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/intl-0.17.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -296,7 +296,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-03-05T13:09:37.157690Z",
+  "generated": "2023-03-07T03:20:59.718343Z",
   "generator": "pub",
-  "generatorVersion": "2.19.2"
+  "generatorVersion": "2.19.3"
 }

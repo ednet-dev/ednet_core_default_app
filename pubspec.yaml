@@ -13,4 +13,4 @@ dependencies:
   ednet_core:
     path: ../../cms/packages/ednet_core
 
-  intl:  ^0.18.0
+  intl:  ^0.17.0
