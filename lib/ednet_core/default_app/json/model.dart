@@ -9,9 +9,9 @@ var ednet_coreDefault_appModelJson = r'''
 {
   "width": 990,
   "height": 580,
-  "lines": [
+  "relations": [
   ],
-  "boxes": [
+  "concepts": [
     {
       "entry": true,
       "name": "Project",
@@ -19,7 +19,7 @@ var ednet_coreDefault_appModelJson = r'''
       "y": 226,
       "width": 120,
       "height": 120,
-      "items": [
+      "attributes": [
         {
           "sequence": 10,
           "category": "identifier",
