@@ -50,4 +50,26 @@ var defaultProjectModelJson = r'''
 }
 ''';
 
-
+var defaultProjectModelYaml = r'''
+width: 990
+height: 580
+relations: []
+concepts:
+  - entry: true
+    name: Project
+    attributes:
+      - sequence: 10
+        category: identifier
+        name: name
+        type: String
+        essential: true
+        sensitive: false
+        init: ""
+      - sequence: 20
+        category: attribute
+        name: description
+        type: String
+        essential: false
+        sensitive: false
+        init: ""
+''';
