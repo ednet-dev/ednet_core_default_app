@@ -44,7 +44,7 @@ genCode() {
   // change Skeleton to YourModelName
   // change "Skeleton" to "YourModelName"
   Model defaultProjectModel =
-      fromJsonToModel(defaultProjectModelJson, defaultDomain, "Project");
+      fromJsonToModel(defaultProjectModelJson, defaultDomain, "Project", {});
 
   repo.domains.add(defaultDomain);
 

@@ -34,6 +34,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 library default_project;
 
 import 'package:ednet_core/ednet_core.dart';
+import 'package:yaml/yaml.dart';
 
 part 'default_project/default/project/json/data.dart';
 part 'default_project/default/project/json/model.dart';

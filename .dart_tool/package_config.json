@@ -3,15 +3,15 @@
   "packages": [
     {
       "name": "_fe_analyzer_shared",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/_fe_analyzer_shared-55.0.0",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/_fe_analyzer_shared-62.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "analyzer",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/analyzer-5.7.1",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/analyzer-6.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.0"
     },
     {
       "name": "args",
@@ -39,9 +39,9 @@
     },
     {
       "name": "collection",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/collection-1.17.1",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/collection-1.17.0",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "2.12"
     },
     {
       "name": "convert",
@@ -62,10 +62,16 @@
       "languageVersion": "2.14"
     },
     {
-      "name": "ednet_core",
-      "rootUri": "../../../cms/packages/ednet_core",
+      "name": "dart_internal",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/dart_internal-0.2.9",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "ednet_core",
+      "rootUri": "../../../packages/core",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "file",
@@ -99,7 +105,7 @@
     },
     {
       "name": "intl",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/intl-0.17.0",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/intl-0.18.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -111,9 +117,9 @@
     },
     {
       "name": "js",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/js-0.6.7",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/js-0.6.5",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "2.16"
     },
     {
       "name": "logging",
@@ -123,13 +129,13 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/matcher-0.12.13",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/matcher-0.12.16",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "meta",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/meta-1.9.0",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/meta-1.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -141,7 +147,7 @@
     },
     {
       "name": "node_preamble",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/node_preamble-2.0.2",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/node_preamble-2.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -237,21 +243,21 @@
     },
     {
       "name": "test",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/test-1.22.0",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/test-1.24.9",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "test_api",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/test_api-0.4.16",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/test_api-0.6.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "test_core",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/test_core-0.4.20",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/test_core-0.5.9",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "typed_data",
@@ -285,9 +291,9 @@
     },
     {
       "name": "yaml",
-      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/yaml-3.1.1",
+      "rootUri": "file:///home/slavisam/.pub-cache/hosted/pub.dev/yaml-3.1.2",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.19"
     },
     {
       "name": "ednet_core_default_app",
@@ -296,7 +302,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-03-07T03:20:59.718343Z",
+  "generated": "2023-11-18T09:49:21.365398Z",
   "generator": "pub",
-  "generatorVersion": "2.19.3"
+  "generatorVersion": "3.1.5"
 }
